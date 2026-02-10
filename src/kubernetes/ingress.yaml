@@ -11,8 +11,7 @@ spec:
     - host: cinemaabyss.example.com
       http:
         paths:
-          #дополните конфигурацию для /
-          ...
+          # Роутинг на events-service
           - path: /api/events
             pathType: Prefix
             backend:
@@ -20,3 +19,21 @@ spec:
                 name: events-service
                 port:
                   number: 8082
+
+          # Роутинг на movies-service (пример)
+          - path: /api/movies
+            pathType: Prefix
+            backend:
+              service:
+                name: movies-service
+                port:
+                  number: 8081
+
+          # Роутинг на users-service или другой бэкенд
+          - path: /api/users
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 8080
