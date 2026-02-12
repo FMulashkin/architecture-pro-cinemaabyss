@@ -12,4 +12,8 @@ public class HealthController {
     public Map<String, String> health() {
         return Map.of("status", "success");
     }
+    @GetMapping("/api/proxy/health")
+    public Map<String, String> healthCheck() {
+        return Map.of("status", "success");
+    }
 }
