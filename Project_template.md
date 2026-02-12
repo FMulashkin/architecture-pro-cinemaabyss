@@ -2,10 +2,12 @@
 
 ## Задание 1
 
-1. Спроектируйте to be архитектуру КиноБездны, разделив всю систему на отдельные домены и организовав интеграционное взаимодействие и единую точку вызова сервисов.
+Спроектируйте to be архитектуру КиноБездны, разделив всю систему на отдельные домены и организовав интеграционное взаимодействие и единую точку вызова сервисов.
 Результат представьте в виде контейнерной диаграммы в нотации С4.
-Добавьте ссылку на файл в этот шаблон
-[ссылка на файл](ссылка)
+
+[Диаграмма контейнеров](//www.plantuml.com/plantuml/png/jLVTJXl75x_VfvZu9Y35uV-NUXMLAeOGYagGYqbkhR4zm8fTh-LTG-Y7n4UJHW8LaaPgL5L9g_IYbuQmOR4DlCBPL-YJz9opWxlUMKljHICvcfbpvlSxtplSzmFP3ZgkOzqMS0ozU0yYE8Ketedt8OI1WEju5q8yEeChk4JX83uGkEd7Hm8bLoWPG1ZlqaLSNIKhwrP3hTfD9PRdPbTAI_EBSzNIuaAfih0qRn7JExX2Z1wY_11_3zs4gKSCU3k47g48YD9d5yWUeba7rYsxMNSw3INMWw3btvkQQikjksjsiDwfTNpLhdlDG3M3ktNFdMeviadU5VsWuTYrgTbFYcKwUlneSSgLVg3QU5ITfHjFWxijrFnlq2N6eftWM_w6tMp9jdJ5rvR0V_wwR7XRTdDDh4h7Lto6qPCT9tY8LvUagqIXejOy9Hul5BBYYlsL4l__d_NjCAxz-13EEJ5T3XpkhR9g-rvpWXou8mhZr0ea-vdp769QBkC3kC02o5Ucx4USxP1geZ391lmOxs0wBr7o7BeP5QkoZJ5ngpDUfzcGxUs9EaR5bLLPs_Pzf9xbRObsXKaC3hjw6vqMQ9HP1YGTndR2zMgseweTctpu1TLF86ApjHSHtwURtn5Al4lEFdGw0MQ9biGohEe1T55n3rMHbjn6xqRfWis4QkM9W3TvqCjArWEnyeJMfiODLyN5xaEbBFoMgcbNNk65ao94OpbeKIcN19mAEA7eO-EUaoQ429l1NPE1sfBRUALKNX3poOuGvhq21uuTVq7TpmrzZlld4A6bj8HhHBrAkjx4fkAguc_JhYiAA2uhoIv5SCp08NiJeIyHz6uexWYDJwTzY8oWjEIsYwsNuYWd9oRDsoGKS89mUqH1PTpNnVkH8cYWwsBKuCDoDB5rCk43CUZeK4Pxb2Jc2uc8-GSvRhGLpWuqko43sskc29T712Rnhn3oF1nG_E0i8SyXS5KW4IFjooDzP8A-vw1tiRFx31j1A8W1tUWI1nvX1sb7T4V2Ipm_Jxu3MY5-Dch4WrfI3usQBWNnO8RuofuVhBLLvSj5Pdyz90Z731epLmokQo71rsMGJ_4kbVV8HD9vPo2TydoSt_KyuUzVH5CY9EDnl1sOg9aa8xgHtt7MOkToXrqYUZ_TWYRBCDE8dqfoFl9RZ6-4o5sTvDIdbVxlcWsz8LSt98sAbgolA_45RGbgk80_kEHvpkF0ZGzuPboa2kKtE8sFq8M83uOpMXIBdmazYyGzyVdAIhd26ZHMnqjvAkQBMQuFMI4zZGoXhfwnSbqJuyH61-UhPVkGZHmnZDLqdv0mQrZQMAsIiIrjhbR8jox7S7t1i3DjFAEEDOqhnB3A4EOHQ34_MwQdfmMyuW_xYwGwCoy7CS6hQswEGovTNEpmIt6FXkuaOToyB-QU1XFud5FjfdIgYM5-qW6ND0le2L4qfpMrSHhXnb-TKJyrI-ANy54FBJGOtx1mhc-R_1Xodo-Ruvkv-Oc2wwCHbxaT-K67NaQwYNf6fraSH0vdrc4j-hHOD4MfQnalKzTCaScctSibqn8hFGN6FIQFh6NbwDVfo4Fk3Vexl1BlqsU91W_tV64oTIlO_BStS9ZyiolamKzODXz8XSp6NyyAxC1H0ewnS9v1n7vWBSRxz34LgPUi-7FdjO3tU8mtUTOUcizP5bhMgkTXy2p1Jzv8pCZw1lRgFS5bUgQBXUikzmyZyOtuU-OB7inKCrYhP_m6HZU9wfJA37LvZEk7AD9bNpKuiv5SQ9lkuxhZEdy1)
+
+Код диаграммы лежит в файле Containers_C4.puml
 
 
 ## Задание 2
@@ -58,7 +60,9 @@
 
 Необходимые тесты для проверки этого API вызываются при запуске npm run test:local из папки tests/postman 
 Приложите скриншот тестов и скриншот состояния топиков Kafka http://localhost:8090 
-
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
 
 ## Задание 3
 
@@ -270,10 +274,10 @@ cat .docker/config.json | base64
   ```
   Часть тестов с health-чек упадет, но создание событий отработает.
   Откройте логи event-service и сделайте скриншот обработки событий
-
+![img_4.png](img_4.png)
 #### Шаг 3
 Добавьте сюда скриншота вывода при вызове https://cinemaabyss.example.com/api/movies и  скриншот вывода event-service после вызова тестов.
-
+![img_3.png](img_3.png)
 
 ## Задание 4
 Для простоты дальнейшего обновления и развертывания вам как архитектуру необходимо так же реализовать helm-чарты для прокси-сервиса и проверить работу 
@@ -331,7 +335,7 @@ kubectl delete  namespace cinemaabyss
 ```
 Запустите 
 ```bash
-helm install cinemaabyss .\src\kubernetes\helm --namespace cinemaabyss --create-namespace
+helm install cinemaabyss ./src/kubernetes/helm --namespace cinemaabyss --create-namespace
 ```
 Если в процессе будет ошибка
 ```code
@@ -348,8 +352,9 @@ minikube tunnel
 Потом вызовите 
 https://cinemaabyss.example.com/api/movies
 и приложите скриншот развертывания helm и вывода https://cinemaabyss.example.com/api/movies
-
-
+![img_5.png](img_5.png)
+Если тесты прогонять, то будет как в предыдущем задании, если нет, то вот так
+![img_7.png](img_7.png)
 # Задание 5
 Компания планирует активно развиваться и для повышения надежности, безопасности, реализации сетевых паттернов типа Circuit Breaker и канареечного деплоя вам как архитектору необходимо развернуть istio и настроить circuit breaker для monolith и movies сервисов.
 
@@ -362,13 +367,13 @@ helm install istio-base istio/base -n istio-system --set defaultRevision=default
 helm install istio-ingressgateway istio/gateway -n istio-system
 helm install istiod istio/istiod -n istio-system --wait
 
-helm install cinemaabyss .\src\kubernetes\helm --namespace cinemaabyss --create-namespace
+helm install cinemaabyss ./src/kubernetes/helm --namespace cinemaabyss --create-namespace
 
 kubectl label namespace cinemaabyss istio-injection=enabled --overwrite
 
 kubectl get namespace -L istio-injection
 
-kubectl apply -f .\src\kubernetes\circuit-breaker-config.yaml -n cinemaabyss
+kubectl apply -f ./src/kubernetes/circuit-breaker-config.yaml -n cinemaabyss
 
 ```
 
@@ -388,7 +393,7 @@ kubectl exec -n cinemaabyss $FORTIO_POD -c fortio -- fortio load -c 50 -qps 0 -n
 Например,
 
 ```bash
-kubectl exec -n cinemaabyss fortio-deploy-b6757cbbb-7c9qg  -c fortio -- fortio load -c 50 -qps 0 -n 500 -loglevel Warning http://movies-service:8081/api/movies
+kubectl exec -n cinemaabyss fortio-deploy-78b76b5bdd-xcbk8  -c fortio -- fortio load -c 50 -qps 0 -n 500 -loglevel Warning http://movies-service:8081/api/movies
 ```
 
 Вывод будет типа такого
@@ -403,7 +408,7 @@ Code 503 : 399 (79.8 %)
 Можно еще проверить статистику
 
 ```bash
-kubectl exec -n cinemaabyss fortio-deploy-b6757cbbb-7c9qg -c istio-proxy -- pilot-agent request GET stats | grep movies-service | grep pending
+kubectl exec -n cinemaabyss fortio-deploy-78b76b5bdd-xcbk8 -c istio-proxy -- pilot-agent request GET stats | grep movies-service | grep pending
 ```
 
 И там смотрим 
@@ -414,7 +419,7 @@ You can see 21 for the upstream_rq_pending_overflow value which means 21 calls s
 ```
 
 Приложите скриншот работы circuit breaker'а
-
+![img_6.png](img_6.png)
 Удаляем все
 ```bash
 istioctl uninstall --purge

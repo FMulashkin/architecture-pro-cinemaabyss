@@ -1,0 +1,91 @@
+@startuml
+' Активируем псевдонимы для совместимости
+!define RECTANGLE_ALIASING
+
+' Подключаем контекст и контейнеры
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+skinparam {
+    shadowing false
+    defaultFontName "Segoe UI"
+    defaultFontSize 10
+}
+
+' Пользователь
+Person(user, "Пользователь", "Конечный пользователь системы")
+
+' Граница системы
+System_Boundary(cinema_abyss, "CinemaAbyss") {
+
+    ' UI Контейнеры
+    Container(mobile_ui, "Мобильный интерфейс", "Flutter", "UI для смартфонов")
+    Container(tv_ui, "TV Интерфейс", "React TV", "Интерфейс для SmartTV")
+    Container(web_ui, "Веб-интерфейс", "React", "SPA в браузере")
+
+    Container(gateway, "API Gateway", "Go", "Маршрутизация запросов")
+
+    Container(user_service, "UserService", "Go", "Аутентификация, профили")
+    Container(payment_service, "PaymentService", "Go", "Обработка платежей")
+    Container(cinema_service, "CinemaService", "Go", "Интеграция с кинотеатрами")
+    Container(recommendation_service, "RecommendationService", "Go", "Рекомендации")
+    Container(metadata_service, "MetadataService", "Go", "Управление метаданными")
+
+    ' Базы данных
+    ContainerDb(user_db, "User DB", "PostgreSQL", "Данные пользователей")
+    ContainerDb(payment_db, "Payment DB", "PostgreSQL", "Платежи")
+    ContainerDb(cinema_db, "Cinema DB", "PostgreSQL", "Фильмы и сеансы")
+    ContainerDb(recommendation_db, "Recommendation DB", "PostgreSQL", "Персонализация")
+    ContainerDb(metadata_db, "Metadata DB", "PostgreSQL", "Описание контента")
+
+    Container(kafka, "Apache Kafka", "Kafka", "Шина событий")
+
+    ' Связи
+    mobile_ui --> gateway : HTTPS
+    tv_ui --> gateway : HTTPS
+    web_ui --> gateway : HTTPS
+
+    gateway --> user_service
+    gateway --> payment_service
+    gateway --> cinema_service
+    gateway --> recommendation_service
+    gateway --> metadata_service
+
+    user_service --> user_db
+    payment_service --> payment_db
+    cinema_service --> cinema_db
+    recommendation_service --> recommendation_db
+    metadata_service --> metadata_db
+
+    payment_service --> kafka
+    cinema_service --> kafka
+    metadata_service --> kafka
+}
+
+' === Внешние системы (теперь корректно) ===
+System_Ext(external_cinemas, "Онлайн-кинотеатры")
+System_Ext(payment_gateways, "Платёжные шлюзы")
+System_Ext(external_recsys, "Рекомендательная система")
+
+' Привязка событий
+kafka --> external_cinemas
+kafka <-- external_cinemas
+
+kafka --> payment_gateways
+kafka <-- payment_gateways
+
+kafka --> external_recsys
+kafka <-- external_recsys
+
+' Связи пользователя
+Rel(user, mobile_ui, "Использует", "HTTPS")
+Rel(user, tv_ui, "Использует", "HTTPS")
+Rel(user, web_ui, "Использует", "HTTPS")
+
+' Заголовок
+title Архитектура CinemaAbyss — Уровень Контейнеров
+
+footer
+  UI и Backend: отдельные контейнеры | PostgreSQL на каждый сервис | Kafka для интеграции
+end footer
+@enduml
